@@ -55,7 +55,7 @@ const xml =
     `;
 
 const xmlReplacementPatterns = [/SOAP-ENV:/g, /ns\d+:/g];
-const parsedXml = xmlToJsonUtil(xml);
+const parsedXml = xmlToJsonUtil(xml, xmlReplacementPatterns);
 
 console.log(parsedXml);
 
