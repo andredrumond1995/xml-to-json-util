@@ -12,6 +12,62 @@ To install the library in your project, you can use npm. Run the following comma
 npm install xml-to-json-util
 ```
 
+## Basic Usage
+
+Here is a basic example of how to use the library:
+
+**Example 1**
+```typescript
+import { xmlToJsonUtil } from 'xml-to-json-util';
+
+const xml =
+    `<person>
+      <name>João</name>
+      <age>30</age>
+      <city>São Paulo</city>
+    </person>
+    `;
+
+const parsedXml = xmlToJsonUtil(xml);
+
+console.log(parsedXml);
+
+/*
+output:
+{
+  "person": {
+    "name": "João",
+    "age": "30",
+    "city": "São Paulo"
+  }
+}
+/*
+```
+
+**Example 2**
+```typescript
+import { xmlToJsonUtil } from 'xml-to-json-util';
+
+const xml =
+    `<SOAP-ENV:product>
+      <ns1:price>1.1</ns1:price>
+    </SOAP-ENV:product>
+    `;
+
+const xmlReplacementPatterns = [/SOAP-ENV:/g, /ns\d+:/g];
+const parsedXml = xmlToJsonUtil(xml);
+
+console.log(parsedXml);
+
+/*
+output:
+{
+  "product": {
+    "price": "1.1"
+  }
+}
+/*
+```
 
 ## License 
 
